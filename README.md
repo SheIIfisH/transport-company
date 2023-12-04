@@ -1,2 +1,2 @@
 # transport-company
-Course project
+team project
