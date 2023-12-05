@@ -2,13 +2,16 @@ TEMPLATE = app
 CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
+CONFIG += c++11
 
 SOURCES += main.cpp \
-    tablestring.cpp
+    table.cpp \
+    tablerow.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    tablestring.h
+    table.h \
+    tablerow.h
 
