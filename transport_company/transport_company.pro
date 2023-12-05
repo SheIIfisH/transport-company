@@ -5,8 +5,7 @@ CONFIG -= qt
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    table.cpp \
-    tablerow.cpp
+    table.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
