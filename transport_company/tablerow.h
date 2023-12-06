@@ -5,11 +5,13 @@
 
 class TableRow
 {
+private:
+    uint16_t m_id;
 public:
-    TableRow(){}
-    TableRow(const TableRow* p_table) {}
-    virtual uint8_t input() = 0;
+    TableRow(const uint16_t p_index): m_id{p_index}{}
     virtual uint8_t show() = 0;
+    uint16_t getId(){return m_id;}
+    void setId(uint16_t p_index){m_id = p_index;}
 };
 
 #endif // TABLEROW_H
