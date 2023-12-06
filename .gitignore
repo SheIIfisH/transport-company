@@ -52,3 +52,12 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+#UML
+*.~ml
+
+#Word
+~$*
+
+#General
+*.tmp
