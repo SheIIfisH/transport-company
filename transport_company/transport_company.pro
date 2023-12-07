@@ -8,11 +8,11 @@ SOURCES += main.cpp \
     table.cpp \
     mainmenu.cpp \
     orderrow.cpp \
-    reportscreen.cpp 
-    expencerow.cpp \
-    transportrow.cpp \
+    reportscreen.cpp \ 
     premisesrow.cpp \
-    employeerow.cpp
+    transportrow.cpp \
+    employeerow.cpp \
+    expencerow.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
