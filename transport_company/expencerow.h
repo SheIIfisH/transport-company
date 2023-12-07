@@ -10,7 +10,7 @@
  * строка хранит данные о расходах(имя, кому выплачиваются деньги,
  * дата проведения оплаты, сумма выплаты в рублях, категория выплаты)
  * класс наследуется от абстрактоного TableRow и реализует его
- * виртуальный метод show().
+ * виртуальные методы show() и edit(TableRow * p_row).
  */
 
 class ExpenceRow: public TableRow
@@ -20,6 +20,7 @@ class ExpenceRow: public TableRow
     public:
     ExpenceRow(uint16_t p_index, std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_paymen);
     uint8_t show();
+    uint8_t edit(TableRow * p_row);
     void setRecipient(std::string const &p_recipient);
     std::string getRecipient();
     void setDate(std::string const &p_date);

@@ -10,6 +10,11 @@ uint8_t OrderRow::show()
     return 0;
 }
 
+uint8_t OrderRow::edit(TableRow * p_row)
+{
+    return 0;
+}
+
 void OrderRow::setId(uint16_t p_id)
 {
     m_id = p_id;

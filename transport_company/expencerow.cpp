@@ -10,6 +10,11 @@ uint8_t ExpenceRow::show()
     return 0;
 }
 
+uint8_t ExpenceRow::edit(TableRow * p_row)
+{
+    return 0;
+}
+
 void ExpenceRow::setRecipient(std::string const &p_recipient)
 {
     m_recipient = p_recipient;

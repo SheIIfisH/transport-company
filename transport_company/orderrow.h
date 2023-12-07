@@ -10,7 +10,7 @@
  * строка хранит данные о заказе(адрес отправки, назначения, имя клиента,
  * сумма оплаты в рублях, номер заказа, вес, текущий этап доставки)
  * класс наследуется от абстрактоного TableRow и реализует его
- * виртуальный метод show().
+ * виртуальные методы show() и edit(TableRow * p_row).
  */
 
 class OrderRow: public TableRow
@@ -23,6 +23,7 @@ class OrderRow: public TableRow
              std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status,
              uint64_t p_payment);
     uint8_t show();
+    uint8_t edit(TableRow * p_row);
     void setId(uint16_t p_id);
     uint16_t getId();
     void setWeight(uint16_t p_weight);
