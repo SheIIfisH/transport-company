@@ -1,46 +1,47 @@
-#include "emploveerow.h"
+#include "employeerow.h"
 
-EmploveeRow::PremisesRow(uint16_t id, std::string fio, std::string position, std::string workplace)
+
+EmployeeRow::EmployeeRow(uint16_t p_id, std::string p_fio, std::string p_position, std::string p_workplace):TableRow(p_id)
 {
 
 }
 
-uint8_t EmploveeRow::show()
-{
-    return 0;
-}
-
-uint8_t EmploveeRow::edit(TableRow *p_row)
+uint8_t EmployeeRow::show()
 {
     return 0;
 }
 
-std::string EmploveeRow::getFio()
+uint8_t EmployeeRow::edit(TableRow *p_row)
+{
+    return 0;
+}
+
+std::string EmployeeRow::getFio()
 {
     return "";
 }
 
-void EmploveeRow::setFio(std::string fio)
+void EmployeeRow::setFio(std::string p_fio)
 {
 
 }
 
-std::string EmploveeRow::getPosition()
-{
-    return "";
-}
-
-void EmploveeRow::setPosition(std::string position)
-{
-
-}
-
-std::string EmploveeRow::getWorkplace()
+std::string EmployeeRow::getPosition()
 {
     return "";
 }
 
-void EmploveeRow::setWorkplace(std::string workplace)
+void EmployeeRow::setPosition(std::string p_position)
+{
+
+}
+
+std::string EmployeeRow::getWorkplace()
+{
+    return "";
+}
+
+void EmployeeRow::setWorkplace(std::string p_workplace)
 {
 
 }
