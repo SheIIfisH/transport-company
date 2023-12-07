@@ -25,6 +25,5 @@ HEADERS += \
     reportscreen.h \
     expencerow.h \
     transportrow.h \
-    global.h \
     premisesrow.h \
     employeerow.h
