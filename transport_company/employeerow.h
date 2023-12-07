@@ -5,6 +5,13 @@
 #include <string>
 #include "tablerow.h"
 
+/*
+ * EmployeeRow - это класс, описывающий строку таблицы сотрудников
+ * строка хранит данные о сотруднике (ФИО, должность, место работы)
+ * класс наследуется от абстрактоного TableRow и реализует его
+ * виртуальные методы show() и edit(TableRow * p_row).
+ */
+
 class EmployeeRow : public TableRow
 {
 private:

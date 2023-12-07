@@ -5,6 +5,13 @@
 #include <string>
 #include "tablerow.h"
 
+/*
+ * PremisesRow - это класс, описывающий строку таблицы помещений,
+ * строка хранит данные о помещениях(название, адрес, тип)
+ * класс наследуется от абстрактоного TableRow и реализует его
+ * виртуальные методы show() и edit(TableRow * p_row).
+ */
+
 class PremisesRow : public TableRow
 {
 private:

@@ -5,6 +5,14 @@
 #include <string>
 #include "tablerow.h"
 
+/*
+ * TransportRow - это класс, описывающий строку таблицы транспортных
+ * средств, строка хранит данные о транспортных средствах(номер, ФИО
+ * водителя, грузоподъемность, техническое состояние)
+ * класс наследуется от абстрактоного TableRow и реализует его
+ * виртуальные методы show() и edit(TableRow * p_row).
+ */
+
 typedef enum{operable, mtrequired, rprequired, rpneed} TechStatus_t;
 
 class TransportRow : public TableRow
