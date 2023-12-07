@@ -5,20 +5,20 @@
 #include <string>
 #include "tablerow.h"
 
-class EmploveeRow : public TableRow
+class EmployeeRow : public TableRow
 {
 private:
-    std::string fio, position, workplace;
+    std::string m_fio, m_position, m_workplace;
 public:
-    PremisesRow(uint16_t id, std::string fio, std::string position, std::string workplace);
+    EmployeeRow(uint16_t p_id, std::string p_fio, std::string p_position, std::string p_workplace);
     virtual uint8_t show();
     virtual uint8_t edit(TableRow * p_row);
     std::string getFio();
-    void setFio(std::string fio);
+    void setFio(std::string p_fio);
     std::string getPosition();
-    void setPosition(std::string position);
+    void setPosition(std::string p_position);
     std::string getWorkplace();
-    void setWorkplace(std::string workplace);
+    void setWorkplace(std::string p_workplace);
 };
 
 #endif // EMPLOVEEROW_H

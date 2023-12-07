@@ -1,6 +1,6 @@
 #include "premisesrow.h"
 
-PremisesRow::PremisesRow(uint16_t id, std::string name, std::string address, std::string type):TableRow(id)
+PremisesRow::PremisesRow(uint16_t p_id, std::string p_name, std::string p_address, std::string p_type):TableRow(p_id)
 {
 
 }
@@ -20,7 +20,7 @@ std::string PremisesRow::getName()
     return "";
 }
 
-void PremisesRow::setName(std::string name)
+void PremisesRow::setName(std::string p_name)
 {
 
 }
@@ -30,7 +30,7 @@ std::string PremisesRow::getAddress()
     return "";
 }
 
-void PremisesRow::setAddress(std::string address)
+void PremisesRow::setAddress(std::string p_address)
 {
 
 }
@@ -40,7 +40,7 @@ std::string PremisesRow::getType()
     return "";
 }
 
-void PremisesRow::setType(std::string type)
+void PremisesRow::setType(std::string p_type)
 {
 
 }
