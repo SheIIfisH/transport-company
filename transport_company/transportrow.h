@@ -9,7 +9,7 @@
 class TransportRow : public TableRow
 {
 private:
-    uint16_t m_id;
+    uint16_t m_number;
     std::string m_driver;
     uint32_t m_payload;
     TechStatus_t m_TechCond;
@@ -20,6 +20,14 @@ public:
                  uint32_t p_payload,
                  TechStatus_t p_TechCond);
     virtual uint8_t show() = 0;
+    void setNumber(uint16_t p_number);
+    uint16_t getNumber(){return m_number;}
+    void setDriver(std::string p_driver);
+    std::string getDriver(){return m_driver;}
+    void setPayload(uint32_t p_payload);
+    uint32_t getPayload(){return m_payload;}
+    void setTechCond(TechStatus_t p_TechCond);
+    TechStatus_t getTechCond(){return m_TechCond;}
 };
 
 #endif // TRANSPORTROW_H
