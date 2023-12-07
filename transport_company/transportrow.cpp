@@ -13,3 +13,8 @@ uint8_t TransportRow::show()
 {
     return 0;
 }
+
+uint8_t TransportRow::edit(TableRow *p_row)
+{
+    return 0;
+}

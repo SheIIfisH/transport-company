@@ -84,3 +84,4 @@ uint64_t OrderRow::getPayment()
 {
     return m_payment;
 }
+

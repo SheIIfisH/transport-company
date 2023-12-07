@@ -8,11 +8,11 @@ SOURCES += main.cpp \
     table.cpp \
     mainmenu.cpp \
     orderrow.cpp \
+    reportscreen.cpp 
     expencerow.cpp \
     transportrow.cpp \
     premisesrow.cpp \
     employeerow.cpp
-
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -22,10 +22,9 @@ HEADERS += \
     tablerow.h \
     mainmenu.h \
     orderrow.h \
+    reportscreen.h \
     expencerow.h \
     transportrow.h \
     global.h \
     premisesrow.h \
     employeerow.h
-
-
