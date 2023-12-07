@@ -4,7 +4,8 @@
 #include <stdint.h>
 #include <string>
 #include "tablerow.h"
-#include "global.h"
+
+typedef enum{operable, mtrequired, rprequired, rpneed} TechStatus_t;
 
 class TransportRow : public TableRow
 {

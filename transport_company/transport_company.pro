@@ -20,6 +20,5 @@ HEADERS += \
     mainmenu.h \
     orderrow.h \
     transportrow.h \
-    global.h \
     reportscreen.h
 
