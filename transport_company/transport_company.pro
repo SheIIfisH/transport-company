@@ -6,7 +6,13 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     table.cpp \
-    mainmenu.cpp
+    mainmenu.cpp \
+    orderrow.cpp \
+    reportscreen.cpp \ 
+    premisesrow.cpp \
+    transportrow.cpp \
+    employeerow.cpp \
+    expencerow.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -14,5 +20,11 @@ qtcAddDeployment()
 HEADERS += \
     table.h \
     tablerow.h \
-    mainmenu.h
-
+    mainmenu.h \
+    orderrow.h \
+    reportscreen.h \
+    expencerow.h \
+    transportrow.h \
+    global.h \
+    premisesrow.h \
+    employeerow.h
