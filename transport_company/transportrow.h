@@ -30,6 +30,5 @@ public:
     uint32_t getPayload(){return m_payload;}
     void setTechCond(TechStatus_t p_TechCond);
     TechStatus_t getTechCond(){return m_TechCond;}
-};
 
 #endif // TRANSPORTROW_H

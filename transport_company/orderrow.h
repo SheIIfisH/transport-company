@@ -6,11 +6,11 @@
 #include "TableRow.h"
 
 /*
- * OrderRow - это класс, описывающий строку таблицы заказов
- * строка хранит данные о заказе(адрес отправки, назначения, имя клиента,
- * сумма оплаты в рублях, номер заказа, вес, текущий этап доставки)
- * класс наследуется от абстрактоного TableRow и реализует его
- * виртуальный метод show().
+ * OrderRow - ╤Н╤В╨╛ ╨║╨╗╨░╤Б╤Б, ╨╛╨┐╨╕╤Б╤Л╨▓╨░╤О╤Й╨╕╨╣ ╤Б╤В╤А╨╛╨║╤Г ╤В╨░╨▒╨╗╨╕╤Ж╤Л ╨╖╨░╨║╨░╨╖╨╛╨▓
+ * ╤Б╤В╤А╨╛╨║╨░ ╤Е╤А╨░╨╜╨╕╤В ╨┤╨░╨╜╨╜╤Л╨╡ ╨╛ ╨╖╨░╨║╨░╨╖╨╡(╨░╨┤╤А╨╡╤Б ╨╛╤В╨┐╤А╨░╨▓╨║╨╕, ╨╜╨░╨╖╨╜╨░╤З╨╡╨╜╨╕╤П, ╨╕╨╝╤П ╨║╨╗╨╕╨╡╨╜╤В╨░,
+ * ╤Б╤Г╨╝╨╝╨░ ╨╛╨┐╨╗╨░╤В╤Л ╨▓ ╤А╤Г╨▒╨╗╤П╤Е, ╨╜╨╛╨╝╨╡╤А ╨╖╨░╨║╨░╨╖╨░, ╨▓╨╡╤Б, ╤В╨╡╨║╤Г╤Й╨╕╨╣ ╤Н╤В╨░╨┐ ╨┤╨╛╤Б╤В╨░╨▓╨║╨╕)
+ * ╨║╨╗╨░╤Б╤Б ╨╜╨░╤Б╨╗╨╡╨┤╤Г╨╡╤В╤Б╤П ╨╛╤В ╨░╨▒╤Б╤В╤А╨░╨║╤В╨╛╨╜╨╛╨│╨╛ TableRow ╨╕ ╤А╨╡╨░╨╗╨╕╨╖╤Г╨╡╤В ╨╡╨│╨╛
+ * ╨▓╨╕╤А╤В╤Г╨░╨╗╤М╨╜╤Л╨╡ ╨╝╨╡╤В╨╛╨┤╤Л show() ╨╕ edit(TableRow * p_row).
  */
 
 class OrderRow: public TableRow
@@ -19,9 +19,25 @@ class OrderRow: public TableRow
     std::string m_client, m_addressFrom, m_addressTo, m_status;
     uint64_t m_payment;
     public:
-    OrderRow(uint16_t p_index, uint16_t p_id, uint16_t p_weight, std::string p_client, std::string p_addressFrom,
-                     std::string p_addressTo, std::string p_status, uint64_t p_payment);
+    OrderRow(uint16_t p_index, uint16_t p_id, uint16_t p_weight, std::string const &p_client,
+             std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status,
+             uint64_t p_payment);
     uint8_t show();
+    uint8_t edit(TableRow * p_row);
+    void setId(uint16_t p_id);
+    uint16_t getId();
+    void setWeight(uint16_t p_weight);
+    uint16_t getWeight();
+    void setClient(std::string const &p_client);
+    std::string getClient();
+    void setAddressFrom(std::string const &p_addressFrom);
+    std::string getAddressFrom();
+    void setAddressTo(std::string const &p_addressTo);
+    std::string getAddressTo();
+    void setStatus(std::string const &p_status);
+    std::string getStatus();
+    void setPayment(uint64_t p_payment);
+    uint64_t getPayment();
 };
 
 #endif // ORDERROW_H
