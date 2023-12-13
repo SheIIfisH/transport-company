@@ -15,21 +15,21 @@ OrderRow::OrderRow(uint16_t p_id, uint16_t p_number, uint16_t p_weight, std::str
 
 uint8_t OrderRow::show()
 {
-    tabulation(std::to_string(getId()), 6);
+    PrintCell(std::to_string(getId()), 6);
     std::cout << " ";
-    tabulation(std::to_string(m_number), 6);
+    PrintCell(std::to_string(m_number), 6);
     std::cout << " ";
-    tabulation(m_client, 13);
+    PrintCell(m_client, 13);
     std::cout << " ";
-    tabulation(std::to_string(m_weight), 5);
+    PrintCell(std::to_string(m_weight), 5);
     std::cout << " ";
-    tabulation(m_addressFrom, 13);
+    PrintCell(m_addressFrom, 13);
     std::cout << " ";
-    tabulation(m_addressTo, 13);
+    PrintCell(m_addressTo, 13);
     std::cout << " ";
-    tabulation(std::to_string(m_payment), 6);
+    PrintCell(std::to_string(m_payment), 6);
     std::cout << " ";
-    tabulation(m_status, 11);
+    PrintCell(m_status, 11);
     std::cout << "\n";
     return 0;
 }
