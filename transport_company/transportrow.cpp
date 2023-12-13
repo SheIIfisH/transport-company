@@ -55,13 +55,13 @@ uint8_t TransportRow::show()
 
 uint8_t TransportRow::edit(TableRow *p_row)
     {
-        TransportRow *pointOrderRow = (TransportRow *)p_row;
+        TransportRow *pointTransportRow = (TransportRow *)p_row;
 
         setId(p_row->getId());
-        m_number = pointOrderRow->getNumber() ;
-        m_driver = pointOrderRow->getDriver() ;
-        m_payload = pointOrderRow->getPayload() ;
-        m_TechCond = pointOrderRow->getTechCond();
+        m_number = pointTransportRow->getNumber() ;
+        m_driver = pointTransportRow->getDriver() ;
+        m_payload = pointTransportRow->getPayload() ;
+        m_TechCond = pointTransportRow->getTechCond();
         return 0;
     }
 
