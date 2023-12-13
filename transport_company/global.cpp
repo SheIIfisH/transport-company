@@ -11,7 +11,7 @@ void PrintCell(std::string const &p_string, uint8_t p_columnWidth)
         {
         for(int8_t i = 0; i < difference; ++i)
             {
-            std::cout << "|";
+            std::cout << " ";
             }
         }
 }
