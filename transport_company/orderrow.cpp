@@ -1,28 +1,63 @@
 #include "orderrow.h"
+#include "global.h"
+#include <iostream>
 
-OrderRow::OrderRow(uint16_t p_index, uint16_t p_id, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status, uint64_t p_payment): TableRow(p_index)
+OrderRow::OrderRow(uint16_t p_id, uint16_t p_number, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status, uint64_t p_payment): TableRow(p_id)
 {
-
+    m_number = p_number;
+    m_weight = p_weight;
+    m_client = p_client;
+    m_addressFrom = p_addressFrom;
+    m_addressTo = p_addressTo;
+    m_status = p_status;
+    m_payment = p_payment;
 }
 
 uint8_t OrderRow::show()
 {
+    PrintCell(std::to_string(getId()), 6);
+    std::cout << "|";
+    PrintCell(std::to_string(m_number), 6);
+    std::cout << "|";
+    PrintCell(m_client, 13);
+    std::cout << "|";
+    PrintCell(std::to_string(m_weight), 5);
+    std::cout << "|";
+    PrintCell(m_addressFrom, 13);
+    std::cout << "|";
+    PrintCell(m_addressTo, 13);
+    std::cout << "|";
+    PrintCell(std::to_string(m_payment), 6);
+    std::cout << "|";
+    PrintCell(m_status, 11);
+    std::cout << "\n";
     return 0;
 }
 
 uint8_t OrderRow::edit(TableRow * p_row)
 {
+
+    OrderRow *pointOrderRow = (OrderRow *)p_row;
+
+    setId(p_row->getId());
+    m_number = pointOrderRow->getNumber();
+    m_weight = pointOrderRow->getWeight();
+    m_client = pointOrderRow->getClient();
+    m_addressFrom = pointOrderRow->getAddressFrom();
+    m_addressTo = pointOrderRow->getAddressTo();
+    m_status = pointOrderRow->getStatus();
+    m_payment = pointOrderRow->getPayment();
     return 0;
 }
 
-void OrderRow::setId(uint16_t p_id)
+void OrderRow::setNumber(uint16_t p_number)
 {
-    m_id = p_id;
+    m_number = p_number;
 }
 
-uint16_t OrderRow::getId()
+uint16_t OrderRow::getNumber()
 {
-    return m_id;
+    return m_number;
 }
 
 void OrderRow::setWeight(uint16_t p_weight)
