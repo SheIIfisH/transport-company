@@ -11,6 +11,7 @@ PremisesRow::PremisesRow(uint16_t p_id, std::string p_name, std::string p_addres
 
 uint8_t PremisesRow::show()
 {
+    std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
     PrintCell(m_name, 20);
@@ -18,7 +19,7 @@ uint8_t PremisesRow::show()
     PrintCell(m_address, 20);
     std::cout << "|";
     PrintCell(m_type, 20);
-    std::cout << "\n";
+    std::cout << "|\n";
     return 0;
 }
 

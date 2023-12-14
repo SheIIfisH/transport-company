@@ -11,6 +11,7 @@ EmployeeRow::EmployeeRow(uint16_t p_id, std::string p_fio, std::string p_positio
 
 uint8_t EmployeeRow::show()
 {
+    std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
     PrintCell(m_fio, 20);
@@ -18,7 +19,7 @@ uint8_t EmployeeRow::show()
     PrintCell(m_position, 20);
     std::cout << "|";
     PrintCell(m_workplace, 20);
-    std::cout << "\n";
+    std::cout << "|\n";
     return 0;
 }
 

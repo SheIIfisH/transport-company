@@ -15,6 +15,7 @@ OrderRow::OrderRow(uint16_t p_id, uint16_t p_number, uint16_t p_weight, std::str
 
 uint8_t OrderRow::show()
 {
+    std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
     PrintCell(std::to_string(m_number), 6);
@@ -30,7 +31,7 @@ uint8_t OrderRow::show()
     PrintCell(std::to_string(m_payment), 6);
     std::cout << "|";
     PrintCell(m_status, 11);
-    std::cout << "\n";
+    std::cout << "|\n";
     return 0;
 }
 

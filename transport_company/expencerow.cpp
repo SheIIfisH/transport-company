@@ -16,6 +16,7 @@ ExpenceRow::ExpenceRow(uint16_t p_index,
 
 uint8_t ExpenceRow::show()
 {
+    std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
     PrintCell(m_recipient, 30);
@@ -25,7 +26,7 @@ uint8_t ExpenceRow::show()
     PrintCell(std::to_string(m_payment), 7);
     std::cout << "|";
     PrintCell(m_category, 19);
-    std::cout << "\n";
+    std::cout << "|\n";
     return 0;
 }
 
