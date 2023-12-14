@@ -2,16 +2,15 @@
 #include "global.h"
 #include <iostream>
 
-ExpenceRow::ExpenceRow(uint16_t p_index,
-                       std::string const &p_recipient,
+ExpenceRow::ExpenceRow(std::string const &p_recipient,
                        std::string const &p_date,
                        std::string const &p_category,
-                       uint64_t p_paymen): TableRow(p_index)
+                       uint64_t p_payment)
 {
     m_recipient = p_recipient;
     m_date = p_date;
     m_category = p_category;
-    m_payment = p_paymen;
+    m_payment = p_payment;
 }
 
 uint8_t ExpenceRow::show()
@@ -34,7 +33,6 @@ uint8_t ExpenceRow::edit(TableRow * p_row)
 {
     ExpenceRow *pointExpenceRow = (ExpenceRow *)p_row;
 
-    setId(p_row->getId());
     m_recipient = pointExpenceRow->getRecipient() ;
     m_date = pointExpenceRow->getDate() ;
     m_category = pointExpenceRow->getCategory() ;

@@ -23,8 +23,7 @@ private:
     uint32_t m_payload;
     TechStatus_t m_TechCond;
 public:
-    TransportRow(uint16_t p_index,
-                 uint16_t p_id,
+    TransportRow(uint16_t p_number,
                  std::string p_driver,
                  uint32_t p_payload,
                  TechStatus_t p_TechCond);

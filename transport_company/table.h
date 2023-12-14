@@ -17,8 +17,9 @@ class Table
 {
 private:
     std::list<TableRow*> m_content;
+    uint16_t m_rowCount;
 public:
-    Table(){}
+    Table():m_rowCount{0}{}
     uint8_t showRows();
     uint8_t newRow(TableRow* p_row);
     TableRow* getRow(const uint16_t p_id);

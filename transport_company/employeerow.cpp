@@ -2,7 +2,7 @@
 #include "global.h"
 #include <iostream>
 
-EmployeeRow::EmployeeRow(uint16_t p_id, std::string p_fio, std::string p_position, std::string p_workplace):TableRow(p_id)
+EmployeeRow::EmployeeRow(std::string p_fio, std::string p_position, std::string p_workplace)
 {
     m_fio=p_fio;
     m_position=p_position;
@@ -27,7 +27,6 @@ uint8_t EmployeeRow::edit(TableRow *p_row)
 {
     EmployeeRow *pointEmployeeRow = (EmployeeRow *)p_row;
 
-    setId(p_row->getId());
     m_fio = pointEmployeeRow->getFio();
     m_position = pointEmployeeRow->getPosition();
     m_workplace = pointEmployeeRow->getWorkplace();

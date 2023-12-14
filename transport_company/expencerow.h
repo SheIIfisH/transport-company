@@ -18,7 +18,7 @@ class ExpenceRow: public TableRow
     std::string m_recipient, m_date, m_category;
     uint64_t m_payment;
     public:
-    ExpenceRow(uint16_t p_index, std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_paymen);
+    ExpenceRow(std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_payment);
     uint8_t show();
     uint8_t edit(TableRow * p_row);
     void setRecipient(std::string const &p_recipient);

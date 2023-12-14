@@ -2,7 +2,7 @@
 #include "global.h"
 #include <iostream>
 
-OrderRow::OrderRow(uint16_t p_id, uint16_t p_number, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status, uint64_t p_payment): TableRow(p_id)
+OrderRow::OrderRow(uint16_t p_number, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status, uint64_t p_payment)
 {
     m_number = p_number;
     m_weight = p_weight;
@@ -40,7 +40,6 @@ uint8_t OrderRow::edit(TableRow * p_row)
 
     OrderRow *pointOrderRow = (OrderRow *)p_row;
 
-    setId(p_row->getId());
     m_number = pointOrderRow->getNumber();
     m_weight = pointOrderRow->getWeight();
     m_client = pointOrderRow->getClient();

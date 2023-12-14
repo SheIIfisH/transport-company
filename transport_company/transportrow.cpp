@@ -3,13 +3,12 @@
 #include <iostream>
 
 // конструктор
-TransportRow::TransportRow(uint16_t p_index,
-                           uint16_t p_id,
+TransportRow::TransportRow(uint16_t p_number,
                            std::string p_driver,
                            uint32_t p_payload,
-                           TechStatus_t p_TechCond):TableRow(p_index)
+                           TechStatus_t p_TechCond)
 {
-    m_number = p_id;
+    m_number = p_number;
     m_driver = p_driver;
     m_payload = p_payload;
     m_TechCond = p_TechCond;
@@ -30,22 +29,22 @@ uint8_t TransportRow::show()
     {
     case operable:
     {
-        PrintCell("operable", 12);
+        PrintCell("operable", 20);
         break;
     }
     case mtrequired:
     {
-        PrintCell("mtrequired", 12);
+        PrintCell("maintenance required", 20);
         break;
     }
     case rprequired:
     {
-        PrintCell("rprequired", 12);
+        PrintCell("repair required", 20);
         break;
     }
     case rpneed:
     {
-        PrintCell("rpneed", 12);
+        PrintCell("repair need", 20);
         break;
     }
 
@@ -58,7 +57,6 @@ uint8_t TransportRow::edit(TableRow *p_row)
 {
     TransportRow *pointTransportRow = (TransportRow *)p_row;
 
-    setId(p_row->getId());
     m_number = pointTransportRow->getNumber() ;
     m_driver = pointTransportRow->getDriver() ;
     m_payload = pointTransportRow->getPayload() ;
