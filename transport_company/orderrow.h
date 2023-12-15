@@ -1,7 +1,7 @@
 #ifndef ORDERROW_H
 #define ORDERROW_H
 
-#include <cstdint>
+#include <stdint.h>
 #include <string>
 #include "TableRow.h"
 

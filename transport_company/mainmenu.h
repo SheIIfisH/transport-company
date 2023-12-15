@@ -20,14 +20,34 @@ private:
     Table m_orderTable;
     Table m_expenseTable;
 
-    uint8_t showPrimises();
+    uint8_t showPremises();
+    uint8_t addPremise();
+    uint8_t editPremise();
+    uint8_t deletePremise();
+
     uint8_t showEmployees();
+    uint8_t addEmployee();
+    uint8_t editEmployee();
+    uint8_t deleteEmployee();
+
     uint8_t showTransport();
+    uint8_t addTransport();
+    uint8_t editTransport();
+    uint8_t deleteTransport();
+
     uint8_t showOrders();
+    uint8_t addOrder();
+    uint8_t editOrder();
+    uint8_t deleteOrder();
+
     uint8_t showExpenses();
+    uint8_t addExpenses();
+    uint8_t editExpenses();
+    uint8_t deleteExpenses();
+
     uint8_t createReport();
 public:
-    MainMenu();
+    MainMenu(){}
     void interact();
 };
 

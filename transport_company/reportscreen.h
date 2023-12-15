@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <stdint.h>
 #include "table.h"
 
 /*

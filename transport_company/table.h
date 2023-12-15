@@ -20,6 +20,7 @@ private:
     uint16_t m_rowCount;
 public:
     Table():m_rowCount{0}{}
+    uint16_t getRowCount();
     uint8_t showRows();
     uint8_t newRow(TableRow* p_row);
     TableRow* getRow(const uint16_t p_id);

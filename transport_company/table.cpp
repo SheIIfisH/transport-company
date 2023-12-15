@@ -1,6 +1,11 @@
 #include "table.h"
 //#include <cstdlib>
 
+uint16_t Table::getRowCount()
+{
+    return m_rowCount;
+}
+
 uint8_t Table::showRows()
 {
     for (std::list<TableRow*>::iterator it = m_content.begin(), end = m_content.end(); it != end; ++it)

@@ -1,7 +1,7 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include <cstdint>
+#include <stdint.h>
 #include <string>
 
 //функция печатает строку p_string, как элемент столбца шириной columnWidth;
