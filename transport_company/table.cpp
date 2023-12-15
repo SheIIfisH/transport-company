@@ -8,9 +8,13 @@ uint16_t Table::getRowCount()
 
 uint8_t Table::showRows()
 {
-    for (std::list<TableRow*>::iterator it = m_content.begin(), end = m_content.end(); it != end; ++it)
+    if(m_content.front() != nullptr)
     {
-        (*it)->show();
+        m_content.front()->showHeaders();
+        for (std::list<TableRow*>::iterator it = m_content.begin(), end = m_content.end(); it != end; ++it)
+        {
+            (*it)->show();
+        }
     }
     return 0;
 }

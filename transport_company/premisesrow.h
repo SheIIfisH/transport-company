@@ -19,6 +19,7 @@ private:
 public:
     PremisesRow(std::string p_name, std::string p_address, std::string p_type);
     virtual uint8_t show();
+    virtual void showHeaders();
     virtual uint8_t edit(TableRow * p_row);
     std::string getName();
     void setName(std::string p_name);

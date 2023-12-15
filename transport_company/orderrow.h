@@ -23,6 +23,7 @@ class OrderRow: public TableRow
              std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status,
              uint64_t p_payment);
     uint8_t show();
+    void showHeaders();
     uint8_t edit(TableRow * p_row);
     void setNumber(uint16_t p_number);
     uint16_t getNumber();

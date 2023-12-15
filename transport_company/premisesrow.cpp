@@ -23,6 +23,12 @@ uint8_t PremisesRow::show()
     return 0;
 }
 
+void PremisesRow::showHeaders()
+{
+    std::cout << "| N    | Name               | Address            | Type               |" << std::endl;
+    std::cout << "|======|====================|====================|====================|" << std::endl;
+}
+
 uint8_t PremisesRow::edit(TableRow *p_row)
 {
     PremisesRow *pointPremisesRow = (PremisesRow *)p_row;

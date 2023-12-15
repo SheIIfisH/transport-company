@@ -28,6 +28,7 @@ public:
                  uint32_t p_payload,
                  TechStatus_t p_TechCond);
     virtual uint8_t show();
+    virtual void showHeaders();
     virtual uint8_t edit(TableRow * p_row);
     void setNumber(uint16_t p_number);
     uint16_t getNumber();

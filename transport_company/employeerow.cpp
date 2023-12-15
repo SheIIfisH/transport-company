@@ -23,6 +23,12 @@ uint8_t EmployeeRow::show()
     return 0;
 }
 
+void EmployeeRow::showHeaders()
+{
+    std::cout << "| N    | FIO                | Position           | Workplace          |" << std::endl;
+    std::cout << "|======|====================|====================|====================|" << std::endl;
+}
+
 uint8_t EmployeeRow::edit(TableRow *p_row)
 {
     EmployeeRow *pointEmployeeRow = (EmployeeRow *)p_row;

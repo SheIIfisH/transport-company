@@ -19,38 +19,44 @@ uint8_t TransportRow::show()
     std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
-    PrintCell(std::to_string(m_number), 6);
+    PrintCell(std::to_string(m_number), 8);
     std::cout << "|";
-    PrintCell(m_driver, 37);
+    PrintCell(m_driver, 20);
     std::cout << "|";
-    PrintCell(std::to_string(m_payload), 7);
+    PrintCell(std::to_string(m_payload), 9);
     std::cout << "|";
     switch (m_TechCond)
     {
     case operable:
     {
-        PrintCell("operable", 20);
+        PrintCell("operable", 21);
         break;
     }
     case mtrequired:
     {
-        PrintCell("maintenance required", 20);
+        PrintCell("maintenance required", 21);
         break;
     }
     case rprequired:
     {
-        PrintCell("repair required", 20);
+        PrintCell("repair required", 21);
         break;
     }
     case rpneed:
     {
-        PrintCell("repair need", 20);
+        PrintCell("repair need", 21);
         break;
     }
 
     }
     std::cout << "|\n";
     return 0;
+}
+
+void TransportRow::showHeaders()
+{
+    std::cout << "| N    | Number | Driver             | Payload | Technical condition |" << std::endl;
+    std::cout << "|======|========|====================|=========|=====================|" << std::endl;
 }
 
 uint8_t TransportRow::edit(TableRow *p_row)

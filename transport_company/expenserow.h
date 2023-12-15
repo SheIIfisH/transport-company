@@ -20,6 +20,7 @@ class ExpenseRow: public TableRow
     public:
     ExpenseRow(std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_payment);
     uint8_t show();
+    void showHeaders();
     uint8_t edit(TableRow * p_row);
     void setRecipient(std::string const &p_recipient);
     std::string getRecipient();

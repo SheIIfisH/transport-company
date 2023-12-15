@@ -24,18 +24,24 @@ uint8_t ExpenseRow::show()
     std::cout << "|";
     PrintCell(std::to_string(m_payment), 12);
     std::cout << "|";
-    PrintCell(m_category, 19);
+    PrintCell(m_category, 20);
     std::cout << "|\n";
     return 0;
+}
+
+void ExpenseRow::showHeaders()
+{
+    std::cout << "| N    | Recipient                    | Date     | Payment    | Category           |" << std::endl;
+    std::cout << "|======|==============================|==========|============|====================|" << std::endl;
 }
 
 uint8_t ExpenseRow::edit(TableRow * p_row)
 {
     ExpenseRow *pointExpenseRow = (ExpenseRow *)p_row;
 
-    m_recipient = pointExpenseRow->getRecipient() ;
-    m_date = pointExpenseRow->getDate() ;
-    m_category = pointExpenseRow->getCategory() ;
+    m_recipient = pointExpenseRow->getRecipient();
+    m_date = pointExpenseRow->getDate();
+    m_category = pointExpenseRow->getCategory();
     m_payment = pointExpenseRow->getPayment();
     return 0;
 }

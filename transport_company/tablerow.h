@@ -20,6 +20,7 @@ public:
     TableRow(): m_id{1}{}
     TableRow(const uint16_t p_index): m_id{p_index}{}
     virtual uint8_t show() = 0;
+    virtual void showHeaders() = 0;
     virtual uint8_t edit(TableRow * p_row) = 0;
     uint16_t getId(){return m_id;}
     void setId(uint16_t p_index){m_id = p_index;}

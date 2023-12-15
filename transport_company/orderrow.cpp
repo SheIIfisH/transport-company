@@ -18,21 +18,27 @@ uint8_t OrderRow::show()
     std::cout << "|";
     PrintCell(std::to_string(getId()), 6);
     std::cout << "|";
-    PrintCell(std::to_string(m_number), 6);
+    PrintCell(std::to_string(m_number), 8);
     std::cout << "|";
-    PrintCell(m_client, 13);
+    PrintCell(m_client, 15);
     std::cout << "|";
-    PrintCell(std::to_string(m_weight), 5);
+    PrintCell(std::to_string(m_weight), 8);
     std::cout << "|";
-    PrintCell(m_addressFrom, 13);
+    PrintCell(m_addressFrom, 20);
     std::cout << "|";
-    PrintCell(m_addressTo, 13);
+    PrintCell(m_addressTo, 20);
     std::cout << "|";
-    PrintCell(std::to_string(m_payment), 6);
+    PrintCell(std::to_string(m_payment), 9);
     std::cout << "|";
-    PrintCell(m_status, 11);
+    PrintCell(m_status, 15);
     std::cout << "|\n";
     return 0;
+}
+
+void OrderRow::showHeaders()
+{
+    std::cout << "| N    | Number | Client        | Weight | Address from       | Address to         | Payment | Status        |" << std::endl;
+    std::cout << "|======|========|===============|========|====================|====================|=========|===============|" << std::endl;
 }
 
 uint8_t OrderRow::edit(TableRow * p_row)
