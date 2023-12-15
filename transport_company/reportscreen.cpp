@@ -1,6 +1,6 @@
 #include "reportscreen.h"
 #include "orderrow.h"
-#include "expencerow.h"
+#include "expenserow.h"
 #include <cstdlib>
 #include <iostream>
 
@@ -8,26 +8,26 @@ ReportScreen::ReportScreen(Table* p_orderTable, Table* p_expenseTable)
 {
 
     uint32_t i = 1;
-    ExpenceRow *pointExpenceRow = (ExpenceRow*)(p_expenseTable->getRow(i++));
+    ExpenseRow *pointExpenseRow = (ExpenseRow*)(p_expenseTable->getRow(i++));
     std::string category;
     uint64_t payment;
     OrderRow *pointOrderRow;
 
-    m_expence = 0;
-    while (pointExpenceRow != NULL)
+    m_expense = 0;
+    while (pointExpenseRow != NULL)
         {
-        payment = pointExpenceRow->getPayment();
-        category = pointExpenceRow->getCategory();
-        m_expence += payment;
-        if (m_expenceCategories.find(category) == m_expenceCategories.end())
+        payment = pointExpenseRow->getPayment();
+        category = pointExpenseRow->getCategory();
+        m_expense += payment;
+        if (m_expenseCategories.find(category) == m_expenseCategories.end())
             {
-            m_expenceCategories.insert(make_pair(category, payment));
+            m_expenseCategories.insert(make_pair(category, payment));
             }
         else
             {
-            m_expenceCategories[category] += payment;
+            m_expenseCategories[category] += payment;
             }
-        pointExpenceRow = (ExpenceRow*)(p_expenseTable->getRow(i++));
+        pointExpenseRow = (ExpenseRow*)(p_expenseTable->getRow(i++));
         }
     m_income = 0;
     i = 1;
@@ -41,11 +41,12 @@ ReportScreen::ReportScreen(Table* p_orderTable, Table* p_expenseTable)
 
 uint8_t ReportScreen::formReport()
 {
-    std::cout << "Expence:" << '\n';
-    for (std::map<std::string, uint64_t>::iterator it = m_expenceCategories.begin(), end = m_expenceCategories.end(); it != end; ++it)
+    std::cout << "total income: " << m_income << std::endl;
+    std::cout << "Expense:" << '\n';
+    for (std::map<std::string, uint64_t>::iterator it = m_expenseCategories.begin(), end = m_expenseCategories.end(); it != end; ++it)
         {
-        std::cout << it->first << ": " << it->second << '\n';
+        std::cout << it->first << ": " << it->second << std::endl;
         }
-    std::cout << "total expenses: " << m_expence << '\n' << "total income: " << m_income << '\n' << "total profit: " << m_income - m_expence << '\n';
+    std::cout << "total expenses: " << m_expense << std::endl << std::endl << "total profit: " << (int64_t)m_income - m_expense << std::endl;
     return 0;
 }

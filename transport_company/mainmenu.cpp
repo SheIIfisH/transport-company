@@ -902,6 +902,9 @@ uint8_t MainMenu::deleteExpenses()
 /////////////Report//////////////
 uint8_t MainMenu::createReport()
 {
+    ReportScreen report{&m_orderTable, &m_expenseTable};
+    report.formReport();
+    cout << endl;
     return 0;
 }
 

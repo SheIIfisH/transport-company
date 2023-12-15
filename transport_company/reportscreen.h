@@ -18,10 +18,10 @@ class ReportScreen
 {
 public:
     uint64_t m_income;
-    uint64_t m_expence;
-    std::map<std::string, uint64_t> m_expenceCategories;
+    uint64_t m_expense;
+    std::map<std::string, uint64_t> m_expenseCategories;
 public:
-    ReportScreen(Table* p_orderTable, Table* p_expenceTable);
+    ReportScreen(Table* p_orderTable, Table* p_expenseTable);
     uint8_t formReport();
 };
 
