@@ -47,7 +47,8 @@ uint8_t TransportRow::show()
         PrintCell("repair need", 21);
         break;
     }
-
+    default:
+        PrintCell("undefined", 21);
     }
     std::cout << "|\n";
     return 0;

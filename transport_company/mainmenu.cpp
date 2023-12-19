@@ -407,15 +407,24 @@ uint8_t MainMenu::addTransport()
     cin >> driver;
     cout << "Payload >> ";
     cin >> payload;
-    cout << "Techical condition:" << endl;
-    cout << "1 - operable" << endl;
-    cout << "2 - maintenance required" << endl;
-    cout << "3 - repair required" << endl;
-    cout << "4 - repair need" << endl;
-    cout << endl;
-    cout << ">> ";
-    cin >> choice;
-    cout << endl;
+    do
+    {
+        cout << "Techical condition:" << endl;
+        cout << "1 - operable" << endl;
+        cout << "2 - maintenance required" << endl;
+        cout << "3 - repair required" << endl;
+        cout << "4 - repair need" << endl;
+        cout << endl;
+        cout << ">> ";
+        cin >> choice;
+        cout << endl;
+
+        if(choice != '1' && choice != '2' && choice != '3' && choice != '4')
+        {
+            cout << "Incorrect input" << endl;
+        }
+    }
+    while(choice != '1' && choice != '2' && choice != '3' && choice != '4');
 
     switch(choice)
     {
@@ -471,15 +480,24 @@ uint8_t MainMenu::editTransport()
     cin >> driver;
     cout << "Payload >> ";
     cin >> payload;
-    cout << "Techical condition:" << endl;
-    cout << "1 - operable" << endl;
-    cout << "2 - maintenance required" << endl;
-    cout << "3 - repair required" << endl;
-    cout << "4 - repair need" << endl;
-    cout << endl;
-    cout << ">> ";
-    cin >> choice;
-    cout << endl;
+    do
+    {
+        cout << "Techical condition:" << endl;
+        cout << "1 - operable" << endl;
+        cout << "2 - maintenance required" << endl;
+        cout << "3 - repair required" << endl;
+        cout << "4 - repair need" << endl;
+        cout << endl;
+        cout << ">> ";
+        cin >> choice;
+        cout << endl;
+
+        if(choice != '1' && choice != '2' && choice != '3' && choice != '4')
+        {
+            cout << "Incorrect input" << endl;
+        }
+    }
+    while(choice != '1' && choice != '2' && choice != '3' && choice != '4');
 
     switch(choice)
     {
@@ -616,9 +634,11 @@ uint8_t MainMenu::showOrders()
 
 uint8_t MainMenu::addOrder()
 {
+    char choice;
     uint16_t number, weight;
-    string client, addressFrom, addressTo, status;
-    uint64_t payment;
+    string client, addressFrom, addressTo;
+    OrderStatus_t status;
+    int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Number >> ";
     cin >> number;
@@ -630,8 +650,36 @@ uint8_t MainMenu::addOrder()
     cin >> addressFrom;
     cout << "Address to >> ";
     cin >> addressTo;
-    cout << "Status >> ";
-    cin >> status;
+
+    do
+    {
+        cout << "Status:" << endl;
+        cout << "1 - Awaiting delivering" << endl;
+        cout << "2 - Delivered" << endl;
+        cout << endl;
+        cout << ">> ";
+        cin >> choice;
+        cout << endl;
+
+        if(choice != '1' && choice != '2')
+        {
+            cout << "Incorrect input" << endl;
+        }
+    }
+    while(choice != '1' && choice != '2');
+
+    switch(choice)
+    {
+    case '1':
+        status = awaiting;
+        break;
+    case '2':
+        status = delivered;
+        break;
+    default:
+        status = awaiting;
+    }
+
     cout << "Payment >> ";
     cin >> payment;
     cout << endl;
@@ -659,9 +707,11 @@ uint8_t MainMenu::editOrder()
     lineForEdit->show();
     cout << endl;
 
+    char choice;
     uint16_t number, weight;
-    string client, addressFrom, addressTo, status;
-    uint64_t payment;
+    string client, addressFrom, addressTo;
+    OrderStatus_t status;
+    int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Number >> ";
     cin >> number;
@@ -673,8 +723,35 @@ uint8_t MainMenu::editOrder()
     cin >> addressFrom;
     cout << "Address to >> ";
     cin >> addressTo;
-    cout << "Status >> ";
-    cin >> status;
+    do
+    {
+        cout << "Status:" << endl;
+        cout << "1 - Awaiting delivering" << endl;
+        cout << "2 - Delivered" << endl;
+        cout << endl;
+        cout << ">> ";
+        cin >> choice;
+        cout << endl;
+
+        if(choice != '1' && choice != '2')
+        {
+            cout << "Incorrect input" << endl;
+        }
+    }
+    while(choice != '1' && choice != '2');
+
+    switch(choice)
+    {
+    case '1':
+        status = awaiting;
+        break;
+    case '2':
+        status = delivered;
+        break;
+    default:
+        status = awaiting;
+    }
+
     cout << "Payment >> ";
     cin >> payment;
     cout << endl;
@@ -798,7 +875,7 @@ uint8_t MainMenu::showExpenses()
 uint8_t MainMenu::addExpenses()
 {
     std::string recipient, date, category;
-    uint64_t payment;
+    int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Recipient >> ";
     cin >> recipient;
@@ -834,7 +911,7 @@ uint8_t MainMenu::editExpenses()
     cout << endl;
 
     std::string recipient, date, category;
-    uint64_t payment;
+    int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Recipient >> ";
     cin >> recipient;
@@ -907,7 +984,6 @@ uint8_t MainMenu::createReport()
     cout << endl;
     return 0;
 }
-
 
 void MainMenu::interact()
 {

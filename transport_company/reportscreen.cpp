@@ -7,10 +7,10 @@
 ReportScreen::ReportScreen(Table* p_orderTable, Table* p_expenseTable)
 {
 
-    uint32_t i = 1;
+    uint16_t i = 1;
     ExpenseRow *pointExpenseRow = (ExpenseRow*)(p_expenseTable->getRow(i++));
     std::string category;
-    uint64_t payment;
+    int64_t payment;
     OrderRow *pointOrderRow;
 
     m_expense = 0;
@@ -34,7 +34,8 @@ ReportScreen::ReportScreen(Table* p_orderTable, Table* p_expenseTable)
     pointOrderRow = (OrderRow*)(p_orderTable->getRow(i++));
     while (pointOrderRow != NULL)
         {
-        m_income += pointOrderRow->getPayment();
+        if(pointOrderRow->getStatus() == delivered)
+            m_income += pointOrderRow->getPayment();
         pointOrderRow = (OrderRow*)(p_orderTable->getRow(i++));
         }
 }
@@ -43,10 +44,10 @@ uint8_t ReportScreen::formReport()
 {
     std::cout << "total income: " << m_income << std::endl;
     std::cout << "Expense:" << '\n';
-    for (std::map<std::string, uint64_t>::iterator it = m_expenseCategories.begin(), end = m_expenseCategories.end(); it != end; ++it)
+    for (std::map<std::string, int64_t>::iterator it = m_expenseCategories.begin(), end = m_expenseCategories.end(); it != end; ++it)
         {
         std::cout << it->first << ": " << it->second << std::endl;
         }
-    std::cout << "total expenses: " << m_expense << std::endl << std::endl << "total profit: " << (int64_t)m_income - m_expense << std::endl;
+    std::cout << "total expenses: " << m_expense << std::endl << std::endl << "total: " << m_income - m_expense << std::endl;
     return 0;
 }

@@ -18,7 +18,7 @@ class ExpenseRow: public TableRow
     std::string m_recipient, m_date, m_category;
     uint64_t m_payment;
     public:
-    ExpenseRow(std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_payment);
+    ExpenseRow(std::string const &p_recipient, std::string const &p_date, std::string const &p_category, int64_t p_payment);
     uint8_t show();
     void showHeaders();
     uint8_t edit(TableRow * p_row);
@@ -28,8 +28,8 @@ class ExpenseRow: public TableRow
     std::string getDate();
     void setCategory(std::string const &p_category);
     std::string getCategory();
-    void setPayment(uint64_t p_payment);
-    uint64_t getPayment();
+    void setPayment(int64_t p_payment);
+    int64_t getPayment();
 };
 
 #endif // EXPENCEROW_H

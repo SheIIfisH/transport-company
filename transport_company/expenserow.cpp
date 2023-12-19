@@ -5,7 +5,7 @@
 ExpenseRow::ExpenseRow(std::string const &p_recipient,
                        std::string const &p_date,
                        std::string const &p_category,
-                       uint64_t p_payment)
+                       int64_t p_payment)
 {
     m_recipient = p_recipient;
     m_date = p_date;
@@ -75,12 +75,12 @@ std::string ExpenseRow::getCategory()
 {
     return m_category;
 }
-void ExpenseRow::setPayment(uint64_t p_payment)
+void ExpenseRow::setPayment(int64_t p_payment)
 {
     m_payment = p_payment;
 }
 
-uint64_t ExpenseRow::getPayment()
+int64_t ExpenseRow::getPayment()
 {
     return m_payment;
 }

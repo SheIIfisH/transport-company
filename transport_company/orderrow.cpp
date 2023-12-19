@@ -2,7 +2,7 @@
 #include "global.h"
 #include <iostream>
 
-OrderRow::OrderRow(uint16_t p_number, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, std::string const &p_status, uint64_t p_payment)
+OrderRow::OrderRow(uint16_t p_number, uint16_t p_weight, std::string const &p_client, std::string const &p_addressFrom, std::string const &p_addressTo, OrderStatus_t const &p_status, int64_t p_payment)
 {
     m_number = p_number;
     m_weight = p_weight;
@@ -30,15 +30,29 @@ uint8_t OrderRow::show()
     std::cout << "|";
     PrintCell(std::to_string(m_payment), 9);
     std::cout << "|";
-    PrintCell(m_status, 15);
+    switch (m_status)
+    {
+    case awaiting:
+    {
+        PrintCell("Awaiting for delivery", 23);
+        break;
+    }
+    case delivered:
+    {
+        PrintCell("Delivered", 23);
+        break;
+    }
+    default:
+        PrintCell("undefined", 23);
+    }
     std::cout << "|\n";
     return 0;
 }
 
 void OrderRow::showHeaders()
 {
-    std::cout << "| N    | Number | Client        | Weight | Address from       | Address to         | Payment | Status        |" << std::endl;
-    std::cout << "|======|========|===============|========|====================|====================|=========|===============|" << std::endl;
+    std::cout << "| N    | Number | Client        | Weight | Address from       | Address to         | Payment | Status                |" << std::endl;
+    std::cout << "|======|========|===============|========|====================|====================|=========|=======================|" << std::endl;
 }
 
 uint8_t OrderRow::edit(TableRow * p_row)
@@ -106,22 +120,22 @@ std::string OrderRow::getAddressTo()
     return m_addressTo;
 }
 
-void OrderRow::setStatus(std::string const &p_status)
+void OrderRow::setStatus(OrderStatus_t const &p_status)
 {
     m_status = p_status;
 }
 
-std::string OrderRow::getStatus()
+OrderStatus_t OrderRow::getStatus()
 {
     return m_status;
 }
 
-void OrderRow::setPayment(uint64_t p_payment)
+void OrderRow::setPayment(int64_t p_payment)
 {
     m_payment = p_payment;
 }
 
-uint64_t OrderRow::getPayment()
+int64_t OrderRow::getPayment()
 {
     return m_payment;
 }
