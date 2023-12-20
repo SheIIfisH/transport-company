@@ -1,7 +1,7 @@
 #ifndef EXPENCEROW_H
 #define EXPENCEROW_H
 
-#include <cstdint>
+#include <stdint.h>
 #include <string>
 #include "TableRow.h"
 
@@ -13,13 +13,14 @@
  * виртуальные методы show() и edit(TableRow * p_row).
  */
 
-class ExpenceRow: public TableRow
+class ExpenseRow: public TableRow
 {
     std::string m_recipient, m_date, m_category;
     uint64_t m_payment;
     public:
-    ExpenceRow(uint16_t p_index, std::string const &p_recipient, std::string const &p_date, std::string const &p_category, uint64_t p_paymen);
+    ExpenseRow(std::string const &p_recipient, std::string const &p_date, std::string const &p_category, int64_t p_payment);
     uint8_t show();
+    void showHeaders();
     uint8_t edit(TableRow * p_row);
     void setRecipient(std::string const &p_recipient);
     std::string getRecipient();
@@ -27,8 +28,8 @@ class ExpenceRow: public TableRow
     std::string getDate();
     void setCategory(std::string const &p_category);
     std::string getCategory();
-    void setPayment(uint64_t p_payment);
-    uint64_t getPayment();
+    void setPayment(int64_t p_payment);
+    int64_t getPayment();
 };
 
 #endif // EXPENCEROW_H

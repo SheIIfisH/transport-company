@@ -17,12 +17,15 @@ class Table
 {
 private:
     std::list<TableRow*> m_content;
+    uint16_t m_rowCount;
 public:
-    Table(){}
+    Table():m_rowCount{0}{}
+    uint16_t getRowCount();
+    uint8_t showRows();
     uint8_t newRow(TableRow* p_row);
-    TableRow* getRow(const uint16_t p_index);
-    uint8_t editRow(const uint16_t p_index, TableRow* p_row);
-    uint8_t deleteRow(const uint16_t p_index);
+    TableRow* getRow(const uint16_t p_id);
+    uint8_t editRow(const uint16_t p_id, TableRow* p_row);
+    uint8_t deleteRow(const uint16_t p_id);
 };
 
 #endif // TABLE_H

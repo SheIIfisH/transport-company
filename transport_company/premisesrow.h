@@ -17,8 +17,9 @@ class PremisesRow : public TableRow
 private:
     std::string m_name, m_address, m_type;
 public:
-    PremisesRow(uint16_t p_id, std::string p_name, std::string p_address, std::string p_type);
+    PremisesRow(std::string p_name, std::string p_address, std::string p_type);
     virtual uint8_t show();
+    virtual void showHeaders();
     virtual uint8_t edit(TableRow * p_row);
     std::string getName();
     void setName(std::string p_name);

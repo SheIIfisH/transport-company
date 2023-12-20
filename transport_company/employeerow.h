@@ -17,8 +17,9 @@ class EmployeeRow : public TableRow
 private:
     std::string m_fio, m_position, m_workplace;
 public:
-    EmployeeRow(uint16_t p_id, std::string p_fio, std::string p_position, std::string p_workplace);
+    EmployeeRow(std::string p_fio, std::string p_position, std::string p_workplace);
     virtual uint8_t show();
+    virtual void showHeaders();
     virtual uint8_t edit(TableRow * p_row);
     std::string getFio();
     void setFio(std::string p_fio);

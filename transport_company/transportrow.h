@@ -23,20 +23,20 @@ private:
     uint32_t m_payload;
     TechStatus_t m_TechCond;
 public:
-    TransportRow(uint16_t p_index,
-                 uint16_t p_id,
+    TransportRow(uint16_t p_number,
                  std::string p_driver,
                  uint32_t p_payload,
                  TechStatus_t p_TechCond);
     virtual uint8_t show();
+    virtual void showHeaders();
     virtual uint8_t edit(TableRow * p_row);
     void setNumber(uint16_t p_number);
-    uint16_t getNumber(){return m_number;}
+    uint16_t getNumber();
     void setDriver(std::string p_driver);
-    std::string getDriver(){return m_driver;}
+    std::string getDriver();
     void setPayload(uint32_t p_payload);
-    uint32_t getPayload(){return m_payload;}
+    uint32_t getPayload();
     void setTechCond(TechStatus_t p_TechCond);
-    TechStatus_t getTechCond(){return m_TechCond;}
+    TechStatus_t getTechCond();
 };
 #endif // TRANSPORTROW_H
