@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "global.h"
 #include "mainmenu.h"
 #include "premisesrow.h"
 #include "employeerow.h"
@@ -27,7 +28,7 @@ uint8_t MainMenu::showPremises()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
         }
         else
@@ -42,7 +43,7 @@ uint8_t MainMenu::showPremises()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
 
             switch(choice)
@@ -67,6 +68,7 @@ uint8_t MainMenu::showPremises()
             break;
         default:
             cout << "Invalid input" << endl;
+            cout << endl;
         }
     }
     return 0;
@@ -77,11 +79,11 @@ uint8_t MainMenu::addPremise()
     string name, address, type;
     cout << "Enter the details" << endl;
     cout << "Title >> ";
-    cin >> name;
+    name = GetString();
     cout << "Address >> ";
-    cin >> address;
+    address = GetString();
     cout << "Type >> ";
-    cin >> type;
+    type = GetString();
     cout << endl;
 
     m_premisesTable.newRow(new PremisesRow(name, address, type));
@@ -93,9 +95,19 @@ uint8_t MainMenu::addPremise()
 uint8_t MainMenu::editPremise()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     PremisesRow* lineForEdit = (PremisesRow*) m_premisesTable.getRow(id);
     if(!lineForEdit)
@@ -110,11 +122,11 @@ uint8_t MainMenu::editPremise()
     string name, address, type;
     cout << "Enter the details" << endl;
     cout << "Title >> ";
-    cin >> name;
+    name = GetString();
     cout << "Address >> ";
-    cin >> address;
+    address = GetString();
     cout << "Type >> ";
-    cin >> type;
+    type = GetString();
     cout << endl;
 
     uint16_t status = m_premisesTable.editRow(id, new PremisesRow(name, address, type));
@@ -136,9 +148,19 @@ uint8_t MainMenu::editPremise()
 uint8_t MainMenu::deletePremise()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     PremisesRow* lineForDelete = (PremisesRow*) m_premisesTable.getRow(id);
     if(!lineForDelete)
@@ -152,7 +174,7 @@ uint8_t MainMenu::deletePremise()
 
     char choice = 0;
     cout << "Are you sure you want to delete this line? (Y/N) >> ";
-    cin >> choice;
+    choice = GetChar();
     cout << endl;
 
     if(choice == 'Y' || choice == 'y')
@@ -187,7 +209,7 @@ uint8_t MainMenu::showEmployees()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
         }
         else
@@ -202,7 +224,7 @@ uint8_t MainMenu::showEmployees()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
 
             switch(choice)
@@ -228,6 +250,7 @@ uint8_t MainMenu::showEmployees()
         default:
             cout << "Invalid input" << endl;
         }
+        cout << endl;
     }
     return 0;
 }
@@ -237,11 +260,11 @@ uint8_t MainMenu::addEmployee()
     string fio, position, workplace;
     cout << "Enter the details" << endl;
     cout << "FIO >> ";
-    cin >> fio;
+    fio = GetString();
     cout << "Position >> ";
-    cin >> position;
+    position = GetString();
     cout << "Workplace >> ";
-    cin >> workplace;
+    workplace = GetString();
     cout << endl;
 
     m_employeeTable.newRow(new EmployeeRow(fio, position, workplace));
@@ -253,9 +276,19 @@ uint8_t MainMenu::addEmployee()
 uint8_t MainMenu::editEmployee()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     EmployeeRow* lineForEdit = (EmployeeRow*) m_employeeTable.getRow(id);
     if(!lineForEdit)
@@ -270,11 +303,11 @@ uint8_t MainMenu::editEmployee()
     string fio, position, workplace;
     cout << "Enter the details" << endl;
     cout << "FIO >> ";
-    cin >> fio;
+    fio = GetString();
     cout << "Position >> ";
-    cin >> position;
+    position = GetString();
     cout << "Workplace >> ";
-    cin >> workplace;
+    workplace = GetString();
     cout << endl;
 
     uint16_t status = m_employeeTable.editRow(id, new EmployeeRow(fio, position, workplace));
@@ -296,9 +329,19 @@ uint8_t MainMenu::editEmployee()
 uint8_t MainMenu::deleteEmployee()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     EmployeeRow* lineForDelete = (EmployeeRow*) m_employeeTable.getRow(id);
     if(!lineForDelete)
@@ -312,7 +355,7 @@ uint8_t MainMenu::deleteEmployee()
 
     char choice = 0;
     cout << "Are you sure you want to delete this line? (Y/N) >> ";
-    cin >> choice;
+    choice = GetChar();
     cout << endl;
 
     if(choice == 'Y' || choice == 'y')
@@ -347,7 +390,7 @@ uint8_t MainMenu::showTransport()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
         }
         else
@@ -362,7 +405,7 @@ uint8_t MainMenu::showTransport()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
 
             switch(choice)
@@ -387,6 +430,7 @@ uint8_t MainMenu::showTransport()
             break;
         default:
             cout << "Invalid input" << endl;
+            cout << endl;
         }
     }
     return 0;
@@ -395,18 +439,44 @@ uint8_t MainMenu::showTransport()
 uint8_t MainMenu::addTransport()
 {
     char choice = 0;
+    bool check = false;
 
     uint16_t number;
     string driver;
     uint32_t payload;
     TechStatus_t techCond;
+
     cout << "Enter the details" << endl;
-    cout << "Number >> ";
-    cin >> number;
+
+    while(!check)
+    {
+        cout << "Number >> ";
+        check = GetInteger<uint16_t>(number);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
+
     cout << "Driver >> ";
-    cin >> driver;
-    cout << "Payload >> ";
-    cin >> payload;
+    driver = GetString();
+
+    while(!check)
+    {
+        cout << "Payload >> ";
+        check = GetInteger<uint32_t>(payload);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
+
     do
     {
         cout << "Techical condition:" << endl;
@@ -416,12 +486,13 @@ uint8_t MainMenu::addTransport()
         cout << "4 - repair need" << endl;
         cout << endl;
         cout << ">> ";
-        cin >> choice;
+        choice = GetChar();
         cout << endl;
 
         if(choice != '1' && choice != '2' && choice != '3' && choice != '4')
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
     }
     while(choice != '1' && choice != '2' && choice != '3' && choice != '4');
@@ -453,9 +524,20 @@ uint8_t MainMenu::addTransport()
 uint8_t MainMenu::editTransport()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
+    check = false;
 
     TransportRow* lineForEdit = (TransportRow*) m_transportTable.getRow(id);
     if(!lineForEdit)
@@ -474,12 +556,36 @@ uint8_t MainMenu::editTransport()
     TechStatus_t techCond;
 
     cout << "Enter the details" << endl;
-    cout << "Number >> ";
-    cin >> number;
+
+    while(!check)
+    {
+        cout << "Number >> ";
+        check = GetInteger<uint16_t>(number);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
+
     cout << "Driver >> ";
-    cin >> driver;
-    cout << "Payload >> ";
-    cin >> payload;
+    driver = GetString();
+
+    while(!check)
+    {
+        cout << "Payload >> ";
+        check = GetInteger<uint32_t>(payload);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
+
     do
     {
         cout << "Techical condition:" << endl;
@@ -489,7 +595,7 @@ uint8_t MainMenu::editTransport()
         cout << "4 - repair need" << endl;
         cout << endl;
         cout << ">> ";
-        cin >> choice;
+        choice = GetChar();
         cout << endl;
 
         if(choice != '1' && choice != '2' && choice != '3' && choice != '4')
@@ -536,9 +642,19 @@ uint8_t MainMenu::editTransport()
 uint8_t MainMenu::deleteTransport()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     TransportRow* lineForDelete = (TransportRow*) m_transportTable.getRow(id);
     if(!lineForDelete)
@@ -552,7 +668,7 @@ uint8_t MainMenu::deleteTransport()
 
     char choice = 0;
     cout << "Are you sure you want to delete this line? (Y/N) >> ";
-    cin >> choice;
+    choice = GetChar();
     cout << endl;
 
     if(choice == 'Y' || choice == 'y')
@@ -587,7 +703,7 @@ uint8_t MainMenu::showOrders()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
         }
         else
@@ -602,7 +718,7 @@ uint8_t MainMenu::showOrders()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
 
             switch(choice)
@@ -627,6 +743,7 @@ uint8_t MainMenu::showOrders()
             break;
         default:
             cout << "Invalid input" << endl;
+            cout << endl;
         }
     }
     return 0;
@@ -634,22 +751,45 @@ uint8_t MainMenu::showOrders()
 
 uint8_t MainMenu::addOrder()
 {
+    bool check = false;
     char choice;
     uint16_t number, weight;
     string client, addressFrom, addressTo;
     OrderStatus_t status;
     int64_t payment;
     cout << "Enter the details" << endl;
-    cout << "Number >> ";
-    cin >> number;
+
+    while(!check)
+    {
+        cout << "Number >> ";
+        check = GetInteger<uint16_t>(number);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
+    check = false;
+
     cout << "Client >> ";
-    cin >> client;
-    cout << "Weight >> ";
-    cin >> weight;
+    client = GetString();
+    while(!check)
+    {
+        cout << "Weight >> ";
+        check = GetInteger<uint16_t>(weight);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
     cout << "Address from >> ";
-    cin >> addressFrom;
+    addressFrom = GetString();
     cout << "Address to >> ";
-    cin >> addressTo;
+    addressTo = GetString();
 
     do
     {
@@ -658,7 +798,7 @@ uint8_t MainMenu::addOrder()
         cout << "2 - Delivered" << endl;
         cout << endl;
         cout << ">> ";
-        cin >> choice;
+        choice = GetChar();
         cout << endl;
 
         if(choice != '1' && choice != '2')
@@ -680,8 +820,18 @@ uint8_t MainMenu::addOrder()
         status = awaiting;
     }
 
-    cout << "Payment >> ";
-    cin >> payment;
+    while(!check)
+    {
+        cout << "Payment >> ";
+        check = GetInteger<int64_t>(payment);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
     cout << endl;
 
     m_orderTable.newRow(new OrderRow(number, weight, client, addressFrom, addressTo, status, payment));
@@ -693,9 +843,20 @@ uint8_t MainMenu::addOrder()
 uint8_t MainMenu::editOrder()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
+    check = false;
 
     OrderRow* lineForEdit = (OrderRow*) m_orderTable.getRow(id);
     if(!lineForEdit)
@@ -713,16 +874,39 @@ uint8_t MainMenu::editOrder()
     OrderStatus_t status;
     int64_t payment;
     cout << "Enter the details" << endl;
-    cout << "Number >> ";
-    cin >> number;
+
+    while(!check)
+    {
+        cout << "Number >> ";
+        check = GetInteger<uint16_t>(number);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
+    check = false;
+
     cout << "Client >> ";
-    cin >> client;
-    cout << "Weight >> ";
-    cin >> weight;
+    client = GetString();
+    while(!check)
+    {
+        cout << "Weight >> ";
+        check = GetInteger<uint16_t>(weight);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
     cout << "Address from >> ";
-    cin >> addressFrom;
+    addressFrom = GetString();
     cout << "Address to >> ";
-    cin >> addressTo;
+    addressTo = GetString();
+
     do
     {
         cout << "Status:" << endl;
@@ -730,7 +914,7 @@ uint8_t MainMenu::editOrder()
         cout << "2 - Delivered" << endl;
         cout << endl;
         cout << ">> ";
-        cin >> choice;
+        choice = GetChar();
         cout << endl;
 
         if(choice != '1' && choice != '2')
@@ -752,8 +936,18 @@ uint8_t MainMenu::editOrder()
         status = awaiting;
     }
 
-    cout << "Payment >> ";
-    cin >> payment;
+    while(!check)
+    {
+        cout << "Payment >> ";
+        check = GetInteger<int64_t>(payment);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
     cout << endl;
 
     uint16_t res = m_orderTable.editRow(id, new OrderRow(number, weight, client, addressFrom, addressTo, status, payment));
@@ -776,9 +970,19 @@ uint8_t MainMenu::editOrder()
 uint8_t MainMenu::deleteOrder()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     OrderRow* lineForDelete = (OrderRow*) m_orderTable.getRow(id);
     if(!lineForDelete)
@@ -792,7 +996,7 @@ uint8_t MainMenu::deleteOrder()
 
     char choice = 0;
     cout << "Are you sure you want to delete this line? (Y/N) >> ";
-    cin >> choice;
+    choice = GetChar();
     cout << endl;
 
     if(choice == 'Y' || choice == 'y')
@@ -827,7 +1031,7 @@ uint8_t MainMenu::showExpenses()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
         }
         else
@@ -842,7 +1046,7 @@ uint8_t MainMenu::showExpenses()
             cout << endl;
 
             cout << ">> ";
-            cin >> choice;
+            choice = GetChar();
             cout << endl;
 
             switch(choice)
@@ -867,6 +1071,7 @@ uint8_t MainMenu::showExpenses()
             break;
         default:
             cout << "Invalid input" << endl;
+            cout << endl;
         }
     }
     return 0;
@@ -874,17 +1079,29 @@ uint8_t MainMenu::showExpenses()
 
 uint8_t MainMenu::addExpenses()
 {
-    std::string recipient, date, category;
+    bool check = false;
+    string recipient, date, category;
     int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Recipient >> ";
-    cin >> recipient;
+    recipient = GetString();
     cout << "Date >> ";
-    cin >> date;
+    date = GetString();
     cout << "Category >> ";
-    cin >> category;
+    category = GetString();
     cout << "Payment >> ";
-    cin >> payment;
+    while(!check)
+    {
+        cout << "Payment >> ";
+        check = GetInteger<int64_t>(payment);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
     cout << endl;
 
     m_expenseTable.newRow(new ExpenseRow(recipient, date, category, payment));
@@ -896,9 +1113,20 @@ uint8_t MainMenu::addExpenses()
 uint8_t MainMenu::editExpenses()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
+    check = false;
 
     ExpenseRow* lineForEdit = (ExpenseRow*) m_expenseTable.getRow(id);
     if(!lineForEdit)
@@ -914,14 +1142,23 @@ uint8_t MainMenu::editExpenses()
     int64_t payment;
     cout << "Enter the details" << endl;
     cout << "Recipient >> ";
-    cin >> recipient;
+    recipient = GetString();
     cout << "Date >> ";
-    cin >> date;
+    date = GetString();
     cout << "Category >> ";
-    cin >> category;
-    cout << "Payment >> ";
-    cin >> payment;
-    cout << endl;
+    category = GetString();
+    while(!check)
+    {
+        cout << "Payment >> ";
+        check = GetInteger<int64_t>(payment);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+            cout << endl;
+        }
+    }
+    check = false;
 
     uint16_t status = m_expenseTable.editRow(id, new ExpenseRow(recipient, date, category, payment));
     if(status == 0)
@@ -942,9 +1179,19 @@ uint8_t MainMenu::editExpenses()
 uint8_t MainMenu::deleteExpenses()
 {
     uint16_t id{0};
-    cout << "Choose a line to edit (N) >> ";
-    cin >> id;
-    cout << endl;
+    bool check = false;
+
+    while(!check)
+    {
+        cout << "Choose a line to edit (N) >> ";
+        check = GetInteger<uint16_t>(id);
+
+        if(!check)
+        {
+            cout << "Incorrect input" << endl;
+        }
+        cout << endl;
+    }
 
     ExpenseRow* lineForDelete = (ExpenseRow*) m_expenseTable.getRow(id);
     if(!lineForDelete)
@@ -958,7 +1205,7 @@ uint8_t MainMenu::deleteExpenses()
 
     char choice = 0;
     cout << "Are you sure you want to delete this line? (Y/N) >> ";
-    cin >> choice;
+    choice = GetChar();
     cout << endl;
 
     if(choice == 'Y' || choice == 'y')
@@ -1004,7 +1251,7 @@ void MainMenu::interact()
         cout << endl;
 
         cout << ">> ";
-        cin >> choice;
+        choice = GetChar();
         cout << endl;
 
         switch(choice)
