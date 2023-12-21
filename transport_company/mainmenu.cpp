@@ -534,8 +534,8 @@ uint8_t MainMenu::editTransport()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
     check = false;
 
@@ -767,8 +767,8 @@ uint8_t MainMenu::addOrder()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
     check = false;
 
@@ -853,8 +853,8 @@ uint8_t MainMenu::editOrder()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
     check = false;
 
@@ -883,8 +883,8 @@ uint8_t MainMenu::editOrder()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
     check = false;
 
@@ -980,8 +980,8 @@ uint8_t MainMenu::deleteOrder()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
 
     OrderRow* lineForDelete = (OrderRow*) m_orderTable.getRow(id);
@@ -1089,7 +1089,6 @@ uint8_t MainMenu::addExpenses()
     date = GetString();
     cout << "Category >> ";
     category = GetString();
-    cout << "Payment >> ";
     while(!check)
     {
         cout << "Payment >> ";
@@ -1123,8 +1122,8 @@ uint8_t MainMenu::editExpenses()
         if(!check)
         {
             cout << "Incorrect input" << endl;
+            cout << endl;
         }
-        cout << endl;
     }
     check = false;
 
